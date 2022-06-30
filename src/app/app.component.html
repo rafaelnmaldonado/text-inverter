@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="columns is-centered">
+    <div class="box column is-one-third">
+      <h1 class="title has-text-centered">Text Inverter</h1>
+
+      <div class="field">
+        <label>Enter Text</label>
+        <input class="input" (input)="onChangeText($event)"/>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeInvertLetters()" type="checkbox"/>
+            Invert letters
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeInvertNumbers()" type="checkbox"/>
+            Invert numbers
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeInvertOthers()" type="checkbox" />
+            Invert other characters
+          </label>
+        </div>
+      </div>
+
+      <div>
+        <button [disabled]="!(text && (invertLetters || invertNumbers || invertOthers))" (click)="onButtonClick()">Invert</button>
+      </div>
+
+      <div class="box" *ngIf="inverted">
+        <label>Text Inverted</label>
+        <input class="input" [value]="inverted"/>
+      </div>
+    </div>
+  </div>
+</div>
